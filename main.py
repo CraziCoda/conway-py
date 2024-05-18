@@ -34,13 +34,14 @@ then hit enter to start the game
 use enter pause and edit the game
 use enter to continue
 Use Arrow up too zoom in and Arrow down to zoom out
+Use Esc to clear screen
 """
 
 desc_font = pygame.font.SysFont('Arial', 18)
 
 
 def main():
-    global game_desc_show, game_started
+    global game_desc_show, game_started, active_blocks
     running = True
     while running:
         for event in pygame.event.get():
@@ -51,6 +52,11 @@ def main():
                 if event.key == pygame.K_RETURN and not game_desc_show:
                     game_started = not game_started
                 game_desc_show = False
+
+                if event.key == pygame.K_ESCAPE:
+                    active_blocks.clear()
+
+                
 
         screen.fill((0, 0, 0))
 
